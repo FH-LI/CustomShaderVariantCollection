@@ -15,6 +15,7 @@ public class ShaderVariantCollectionWindow : EditorWindow
     static string shaderFolderPath;
     static string packageFolderPath;
     string errorTips;
+    string tempStr;
 
     [MenuItem("Tools/Art/ShaderVariantCollection")]
     public static void OpenWindow()
@@ -38,11 +39,25 @@ public class ShaderVariantCollectionWindow : EditorWindow
 
         shaderFolderPath = EditorGUI.TextField(new Rect(5, 50, position.width - 60, 20), "ShaderFolderPath", shaderFolderPath);
         if (GUI.Button(new Rect(position.width - 50, 50, 20, 20), "..."))
-            shaderFolderPath = EditorUtility.OpenFolderPanel("ShaderFolderPath", shaderFolderPath, "");
+         {
+            tempStr = EditorUtility.OpenFolderPanel("ShaderFolderPath", shaderFolderPath, "");
+            if (!string.IsNullOrEmpty(tempStr))
+            {
+                shaderFolderPath = tempStr;
+                tempStr = null;
+            }
+        }
 
         packageFolderPath = EditorGUI.TextField(new Rect(5, 85, position.width - 60, 20), "PackageShaderFolderPath", packageFolderPath);
         if (GUI.Button(new Rect(position.width - 50, 85, 20, 20), "..."))
-            packageFolderPath = EditorUtility.OpenFolderPanel("PackageShaderFolderPath", packageFolderPath, "");
+        {
+            tempStr = EditorUtility.OpenFolderPanel("PackageShaderFolderPath", packageFolderPath, "");
+            if (!string.IsNullOrEmpty(tempStr))
+            {
+                packageFolderPath = tempStr;
+                tempStr = null;
+            }
+        }
 
         if (GUI.Button(new Rect(5, 120, 100, 30), "StartCollection"))
         {
