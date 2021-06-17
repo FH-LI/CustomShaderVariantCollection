@@ -372,18 +372,6 @@ public class ShaderVariantCollectionWindow : EditorWindow
         return shaderFeatureKeyword;
     }
 
-    public static bool HasTrueItem<T>(List<T> list, Predicate<T> predicate)
-    {
-        if (list == null || list.Count == 0) return false;
-        bool result = false;
-        for (int i = 0, count = list.Count; i < count; i++)
-        {
-            result |= predicate(list[i]);
-            if (result) break;
-        }
-        return result;
-    }
-
     public static String GetProjectUnityTempPath()
     {
         var rootPath = Environment.CurrentDirectory.Replace('\\', '/');
