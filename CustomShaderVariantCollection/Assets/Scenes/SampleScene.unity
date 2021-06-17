@@ -537,7 +537,7 @@ MonoBehaviour:
     it in, the shader will be added to the SVC file but the variants will not be
     collected.After clicking the StartCollection button, SHADER in the specified
     folder and Material in the project will be collected for analysis,Collect all
-    mutil keywords and shader features used\r\n\r\nPath:Tools->Art->ShaderVariantCollection\r\n\r"
+    mutil keywords and shader features used\r\n\n\r"
 --- !u!222 &1550437098
 CanvasRenderer:
   m_ObjectHideFlags: 0
